@@ -20,3 +20,6 @@ def produce_messages(message="nothing"):
 while True:
     word = input("new word: ")
     produce_messages(word)
+
+# for i in range(200):
+#     produce_messages("word " + str(i))
