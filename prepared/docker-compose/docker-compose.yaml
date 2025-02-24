@@ -1,8 +1,5 @@
 version: "2"
 
-networks:
-  app-tier:
-    driver: bridge
 services:
   kafka-0:
     image: docker.io/bitnami/kafka
@@ -53,6 +50,7 @@ services:
       - KAFKA_CFG_TRANSACTION_STATE_LOG_MIN_ISR=2
     volumes:
       - kafka_1_data:/bitnami/kafka
+
   kafka-2:
     image: docker.io/bitnami/kafka
     ports:
@@ -94,10 +92,11 @@ services:
     environment:
       KAFKA_CLUSTERS_0_NAME: local
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka-1:9092
-    # depends_on:
-    # - kafka-1
-    # - kafka-2
-    # - kafka-3
+    depends_on:
+      - kafka-0
+      - kafka-1
+      - kafka-2
+
 volumes:
   kafka_0_data:
     driver: local
@@ -105,3 +104,7 @@ volumes:
     driver: local
   kafka_2_data:
     driver: local
+
+networks:
+  app-tier:
+    driver: bridge
