@@ -17,9 +17,9 @@ def produce_messages(message="nothing"):
     producer.flush()
     print("All messages sent successfully!")
 
-while True:
-    word = input("new word: ")
-    produce_messages(word)
+# while True:
+#     word = input("new word: ")
+#     produce_messages(word)
 
 # for i in range(200):
 #     produce_messages("word " + str(i))
