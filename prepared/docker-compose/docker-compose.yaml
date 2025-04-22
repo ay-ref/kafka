@@ -7,6 +7,7 @@ services:
       - "9094:9094"
     networks:
       - app-tier
+    restart: always
     environment:
       # KRaft settings
       - KAFKA_CFG_NODE_ID=0
@@ -32,6 +33,7 @@ services:
       - "9095:9095"
     networks:
       - app-tier
+    restart: always
     environment:
       # KRaft settings
       - KAFKA_CFG_NODE_ID=1
@@ -57,6 +59,7 @@ services:
       - "9096:9096"
     networks:
       - app-tier
+    restart: always
     environment:
       # KRaft settings
       - KAFKA_CFG_NODE_ID=2

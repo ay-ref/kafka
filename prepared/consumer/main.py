@@ -3,7 +3,7 @@ from confluent_kafka import Consumer, KafkaException, KafkaError
 # Configuration for the consumer
 conf = {
     'bootstrap.servers': 'localhost:9094',  # Kafka broker address
-    'group.id': '1',         # Consumer group id
+    'group.id': '10',         # Consumer group id
     'auto.offset.reset': 'earliest'          # Start reading from the beginning if no offset is found
 }
 
@@ -11,7 +11,7 @@ conf = {
 consumer = Consumer(conf)
 
 # Subscribe to the topic
-topic = 'aytopic'
+topic = 'raw'
 consumer.subscribe([topic])
 
 # Function to handle message consumption
