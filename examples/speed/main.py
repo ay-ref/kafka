@@ -32,14 +32,15 @@ kafka_config = {
 
 producer = Producer(kafka_config)
 
-topic = 'speed'
-test_count = 20
+topic = 'speed2'
+test_count = 1000
 
 for i in range(test_count):
     message_data = create_random_speed_json()
     message_value = json.dumps(message_data)
     producer.produce(topic, value=message_value, callback=delivery_report)
     producer.poll(0)
+    time.sleep(3)
 
 producer.flush()
 print("All messages sent successfully!")
